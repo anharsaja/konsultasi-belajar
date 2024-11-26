@@ -18,11 +18,8 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
-    protected $fillable = [
-        'name',
-        'email',
-        'password',
-    ];
+    protected $primayKey = 'id';
+    protected $fillable = ['name','username', 'password', 'email', 'role'];
 
     /**
      * The attributes that should be hidden for serialization.
@@ -47,12 +44,35 @@ class User extends Authenticatable
         ];
     }
 
-    public function profile()
+    public function dosenCourses()
     {
-        return $this->hasOne(Profile::class);
+        return $this->hasMany(DosenCourse::class, 'dosen_id', 'id');
     }
-    public function rekening()
+
+    /**
+     * Relasi ke tabel Consultations.
+     * Jika user adalah mahasiswa.
+     */
+    public function studentConsultations()
     {
-        return $this->hasOne(Rekening::class);
+        return $this->hasMany(Consultation::class, 'mahasiswa_id', 'id');
+    }
+
+    /**
+     * Relasi ke tabel Consultations.
+     * Jika user adalah dosen.
+     */
+    public function lecturerConsultations()
+    {
+        return $this->hasMany(Consultation::class, 'dosen_id', 'id');
+    }
+
+    /**
+     * Relasi ke tabel Progress.
+     * Jika user adalah mahasiswa.
+     */
+    public function progress()
+    {
+        return $this->hasMany(Progress::class, 'mahasiswa_id', 'id');
     }
 }
