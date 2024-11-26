@@ -11,13 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('chat_media', function (Blueprint $table) {
+        Schema::create('courses', function (Blueprint $table) {
             $table->id();
-            $table->string('message');
-            $table->string('file_path');
-            $table->string('file_type');
-            $table->unsignedBigInteger('chat_message_id');
-            $table->foreign('chat_message_id')->references('id')->on('chat_messages')->onDelete('cascade');
+            $table->string('course_name');
+            $table->string('course_code')->unique()->nullable();
             $table->timestamps();
         });
     }
@@ -27,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('chat_media');
+        Schema::dropIfExists('courses');
     }
 };
