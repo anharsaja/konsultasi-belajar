@@ -12,7 +12,7 @@
 
 								<div class="hb-content">
 									<a class="logo logo-header" href="#">
-										<img src="{{asset('assets/images/logo/logo.png')}}" data-logo-alt="{{asset('assets/images/logo/logo.png')}}" alt="Logo Negoin">
+										<img src="{{asset('assets/images/logo/logo.png')}}" data-logo-alt="{{asset('assets/images/logo/logo.png')}}" alt="Logo Negoin" height="70">
 									</a><!-- .logo end -->
 									<div class="hb-meta">
 									</div><!-- .hb-meta end -->
