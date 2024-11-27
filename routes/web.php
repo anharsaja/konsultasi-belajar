@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Route;
 require_once __DIR__."/auth/login.php";
 
 // after dashboard
-Route::middleware(['auth', CheckProfile::class])->group(function () {
+Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard', function () {
         return view('pages.dashboard.index');
     })->name('home');
