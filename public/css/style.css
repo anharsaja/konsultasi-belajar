@@ -48,6 +48,25 @@
   *    |-->  [ 10 ] - Form Settings
   *
   */
+
+
+/* tambahan */
+.auth-logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.logo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: fill; /* Isi seluruh div, tapi mungkin merubah rasio gambar */
+}
+
+  
+  
 /*  [ 01 ] - Small Reset
 =========================== */
 body, ul, ol, h1, h2, h3, h4, h5, h6, form, li, p, input, select, legend, textarea, fieldset {

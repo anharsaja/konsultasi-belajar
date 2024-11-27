@@ -2,11 +2,20 @@
     <div class="auth-full-page-content d-flex p-sm-5 p-4">
         <div class="w-100">
             <div class="d-flex flex-column h-100">
-                <div class="mb-4 mb-md-5 text-center">
+                <!-- <div class="mb-4 mb-md-5 text-center">
                     <a href="javascript:void(0);" class="d-block auth-logo">
                         <img src="{{ asset('assets/images/logo/logo-dark.png') }}" alt="" height="60">
                     </a>
+                </div> -->
+
+                <div class="mb-4 mb-md-5 text-center">
+                    <a href="javascript:void(0);" class="d-block auth-logo">
+                        <img src="http://127.0.0.1:8000/assets/images/logo/logo-dark.png" alt="" class="logo-img">
+                    </a>
                 </div>
+
+
+                
                 <div class="auth-content my-auto">
                     <div class="text-center">
                         <h5 class="mb-0">Welcome Back !</h5>
