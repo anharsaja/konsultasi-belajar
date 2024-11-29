@@ -13,7 +13,7 @@
                             </li>
 
                             <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle arrow-none" href="{{ route('pengajuan') }}" id="topnav-dashboard" role="button">
+                                <a class="nav-link dropdown-toggle arrow-none" href="{{ route('pengajuan.index') }}" id="topnav-dashboard" role="button">
                                     <i data-feather="arrow-up"></i><span data-key="t-dashboards">Pengajuan</span>
                                 </a>
                             </li>
