@@ -42,7 +42,7 @@
                                     </div><!-- end card body -->
                                 </div><!-- end card -->
                             </div><!-- end col -->
-        
+
                             <div class="col-xl-3 col-md-6">
                                 <!-- card -->
                                 <div class="card card-h-100">
@@ -66,7 +66,7 @@
                                     </div><!-- end card body -->
                                 </div><!-- end card -->
                             </div><!-- end col-->
-        
+
                             <div class="col-xl-3 col-md-6">
                                 <!-- card -->
                                 <div class="card card-h-100">
@@ -90,7 +90,7 @@
                                     </div><!-- end card body -->
                                 </div><!-- end card -->
                             </div><!-- end col -->
-        
+
                             <div class="col-xl-3 col-md-6">
                                 <!-- card -->
                                 <div class="card card-h-100">
@@ -113,7 +113,7 @@
                                         </div>
                                     </div><!-- end card body -->
                                 </div><!-- end card -->
-                            </div><!-- end col -->    
+                            </div><!-- end col -->
                         </div><!-- end row-->
 
                         <div class="row">
@@ -152,12 +152,12 @@
                                                         <p class="mb-2"><i class="mdi mdi-circle align-middle font-size-10 me-2 text-success"></i> Bitcoin</p>
                                                         <h6>0.4412 BTC = <span class="text-muted font-size-14 fw-normal">$ 4025.32</span></h6>
                                                     </div>
-    
+
                                                     <div class="mt-4 pt-2">
                                                         <p class="mb-2"><i class="mdi mdi-circle align-middle font-size-10 me-2 text-primary"></i> Ethereum</p>
                                                         <h6>4.5701 ETH = <span class="text-muted font-size-14 fw-normal">$ 1123.64</span></h6>
                                                     </div>
-    
+
                                                     <div class="mt-4 pt-2">
                                                         <p class="mb-2"><i class="mdi mdi-circle align-middle font-size-10 me-2 text-info"></i> Litecoin</p>
                                                         <h6>35.3811 LTC = <span class="text-muted font-size-14 fw-normal">$ 2263.09</span></h6>
@@ -190,7 +190,7 @@
                                                         </select>
                                                     </div>
                                                 </div>
-            
+
                                                 <div class="row align-items-center">
                                                     <div class="col-sm">
                                                         <div id="invested-overview" data-colors='["#5156be", "#34c38f"]' class="apex-charts"></div>
@@ -233,7 +233,7 @@
                                         <div class="card bg-primary text-white shadow-primary card-h-100">
                                             <!-- card body -->
                                             <div class="card-body p-0">
-                                                <div id="carouselExampleCaptions" class="carousel slide text-center widget-carousel" data-bs-ride="carousel">                                                   
+                                                <div id="carouselExampleCaptions" class="carousel slide text-center widget-carousel" data-bs-ride="carousel">
                                                     <div class="carousel-inner">
                                                         <div class="carousel-item active">
                                                             <div class="text-center p-4">
@@ -285,7 +285,7 @@
                                                         <!-- end carousel-item -->
                                                     </div>
                                                     <!-- end carousel-inner -->
-                                                    
+
                                                     <div class="carousel-indicators carousel-indicators-rounded">
                                                         <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
                                                             aria-current="true" aria-label="Slide 1"></button>
@@ -351,13 +351,13 @@
                                                             <div class="flex-grow-1 ms-3">
                                                                 <span class="font-size-16">Coinmarketcap</span>
                                                             </div>
-        
+
                                                             <div class="flex-shrink-0">
                                                                 <span class="badge rounded-pill bg-success-subtle text-success font-size-12 fw-medium">+2.5%</span>
                                                             </div>
                                                         </div>
                                                     </div>
-        
+
                                                     <div class="mt-3">
                                                         <div class="d-flex align-items-center">
                                                             <div class="avatar-sm m-auto">
@@ -368,7 +368,7 @@
                                                             <div class="flex-grow-1 ms-3">
                                                                 <span class="font-size-16">Binance</span>
                                                             </div>
-        
+
                                                             <div class="flex-shrink-0">
                                                                 <span class="badge rounded-pill bg-success-subtle text-success font-size-12 fw-medium">+8.3%</span>
                                                             </div>
@@ -385,13 +385,13 @@
                                                             <div class="flex-grow-1 ms-3">
                                                                 <span class="font-size-16">Coinbase</span>
                                                             </div>
-        
+
                                                             <div class="flex-shrink-0">
                                                                 <span class="badge rounded-pill bg-danger-subtle text-danger font-size-12 fw-medium">-3.6%</span>
                                                             </div>
                                                         </div>
                                                     </div>
-        
+
                                                     <div class="mt-3">
                                                         <div class="d-flex align-items-center">
                                                             <div class="avatar-sm m-auto">
@@ -402,7 +402,7 @@
                                                             <div class="flex-grow-1 ms-3">
                                                                 <span class="font-size-16">Yobit</span>
                                                             </div>
-        
+
                                                             <div class="flex-shrink-0">
                                                                 <span class="badge rounded-pill bg-success-subtle text-success font-size-12 fw-medium">+7.1%</span>
                                                             </div>
@@ -419,7 +419,7 @@
                                                             <div class="flex-grow-1 ms-3">
                                                                 <span class="font-size-16">Bitfinex</span>
                                                             </div>
-        
+
                                                             <div class="flex-shrink-0">
                                                                 <span class="badge rounded-pill bg-danger-subtle text-danger font-size-12 fw-medium">-0.9%</span>
                                                             </div>
@@ -429,7 +429,7 @@
                                                         <a href="" class="btn btn-primary w-100">See All Balances <i
                                                                 class="mdi mdi-arrow-right ms-1"></i></a>
                                                     </div>
-        
+
                                                 </div>
                                             </div>
                                         </div>
@@ -439,7 +439,7 @@
                                 <!-- end col -->
                             </div>
                             <!-- end row-->
-        
+
                             <div class="col-xl-4">
                                 <!-- card -->
                                 <div class="card">
@@ -553,7 +553,7 @@
                                                             <label class="input-group-text">Total</label>
                                                             <input type="text" class="form-control" placeholder="$36,854.25">
                                                         </div>
-                                                    </div>  
+                                                    </div>
 
                                                     <div class="text-center">
                                                         <button type="button" class="btn btn-success w-md">Buy Coin</button>
@@ -578,7 +578,7 @@
                                                         <label>Add Amount :</label>
                                                         <div class="input-group mb-3">
                                                             <label class="input-group-text">Amount</label>
-                                                            
+
                                                             <select class="form-select" style="max-width: 90px;">
                                                                 <option value="BT" selected>BTC</option>
                                                                 <option value="ET">ETH</option>
@@ -588,11 +588,11 @@
                                                         </div>
 
                                                         <div class="input-group mb-3">
-                                                        
+
                                                             <label class="input-group-text">Price</label>
-                                                            
+
                                                             <input type="text" class="form-control" placeholder="$23,754.25">
-                                                            
+
                                                             <label class="input-group-text">$</label>
                                                         </div>
 
@@ -600,7 +600,7 @@
                                                             <label class="input-group-text">Total</label>
                                                             <input type="text" class="form-control" placeholder="$6,852.41">
                                                         </div>
-                                                    </div>  
+                                                    </div>
 
                                                     <div class="text-center">
                                                         <button type="button" class="btn btn-danger w-md">Sell Coin</button>
@@ -616,7 +616,7 @@
                                 <!-- end card -->
                             </div>
                             <!-- end col -->
-                            
+
                             <div class="col-xl-4">
                                 <div class="card">
                                     <div class="card-header align-items-center d-flex">
@@ -625,17 +625,17 @@
                                             <ul class="nav justify-content-end nav-tabs-custom rounded card-header-tabs" role="tablist">
                                                 <li class="nav-item">
                                                     <a class="nav-link active" data-bs-toggle="tab" href="#transactions-all-tab" role="tab">
-                                                        All 
+                                                        All
                                                     </a>
                                                 </li>
                                                 <li class="nav-item">
                                                     <a class="nav-link" data-bs-toggle="tab" href="#transactions-buy-tab" role="tab">
-                                                        Buy 
+                                                        Buy
                                                     </a>
                                                 </li>
                                                 <li class="nav-item">
                                                     <a class="nav-link" data-bs-toggle="tab" href="#transactions-sell-tab" role="tab">
-                                                        Sell  
+                                                        Sell
                                                     </a>
                                                 </li>
                                             </ul>
@@ -1004,7 +1004,7 @@
                                                                     </div>
                                                                 </td>
                                                             </tr>
-                                                           
+
                                                             <tr>
                                                                 <td>
                                                                     <div class="font-size-22 text-success">
@@ -1063,7 +1063,7 @@
                                                                 </td>
                                                             </tr>
 
-                                                            
+
                                                         </tbody>
                                                     </table>
                                                 </div>
@@ -1247,7 +1247,7 @@
                                                                 </td>
                                                             </tr>
 
-                                                            
+
 
                                                             <tr>
                                                                 <td style="width: 50px;">
@@ -1331,7 +1331,7 @@
                                                                     <a class="text-muted dropdown-toggle font-size-24" role="button" data-bs-toggle="dropdown" aria-haspopup="true">
                                                                         <i class="mdi mdi-dots-vertical"></i>
                                                                     </a>
-                
+
                                                                     <div class="dropdown-menu dropdown-menu-end">
                                                                         <a class="dropdown-item" href="#">Action</a>
                                                                         <a class="dropdown-item" href="#">Another action</a>
@@ -1342,7 +1342,7 @@
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                    </div> 
+                                                    </div>
                                                 </li>
 
                                                 <li class="activity-list activity-border">
@@ -1367,7 +1367,7 @@
                                                                     <a class="text-muted dropdown-toggle font-size-24" role="button" data-bs-toggle="dropdown" aria-haspopup="true">
                                                                         <i class="mdi mdi-dots-vertical"></i>
                                                                     </a>
-                
+
                                                                     <div class="dropdown-menu dropdown-menu-end">
                                                                         <a class="dropdown-item" href="#">Action</a>
                                                                         <a class="dropdown-item" href="#">Another action</a>
@@ -1378,7 +1378,7 @@
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                    </div> 
+                                                    </div>
                                                 </li>
 
                                                 <li class="activity-list activity-border">
@@ -1403,7 +1403,7 @@
                                                                     <a class="text-muted dropdown-toggle font-size-24" role="button" data-bs-toggle="dropdown" aria-haspopup="true">
                                                                         <i class="mdi mdi-dots-vertical"></i>
                                                                     </a>
-                
+
                                                                     <div class="dropdown-menu dropdown-menu-end">
                                                                         <a class="dropdown-item" href="#">Action</a>
                                                                         <a class="dropdown-item" href="#">Another action</a>
@@ -1414,9 +1414,9 @@
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                    </div> 
+                                                    </div>
                                                 </li>
-            
+
                                                 <li class="activity-list activity-border">
                                                     <div class="activity-icon avatar-md">
                                                         <span class="avatar-title  bg-primary-subtle text-primary rounded-circle">
@@ -1439,7 +1439,7 @@
                                                                     <a class="text-muted dropdown-toggle font-size-24" role="button" data-bs-toggle="dropdown" aria-haspopup="true">
                                                                         <i class="mdi mdi-dots-vertical"></i>
                                                                     </a>
-                
+
                                                                     <div class="dropdown-menu dropdown-menu-end">
                                                                         <a class="dropdown-item" href="#">Action</a>
                                                                         <a class="dropdown-item" href="#">Another action</a>
@@ -1450,7 +1450,7 @@
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                    </div> 
+                                                    </div>
                                                 </li>
 
 
@@ -1476,7 +1476,7 @@
                                                                     <a class="text-muted dropdown-toggle font-size-24" role="button" data-bs-toggle="dropdown" aria-haspopup="true">
                                                                         <i class="mdi mdi-dots-vertical"></i>
                                                                     </a>
-                
+
                                                                     <div class="dropdown-menu dropdown-menu-end">
                                                                         <a class="dropdown-item" href="#">Action</a>
                                                                         <a class="dropdown-item" href="#">Another action</a>
@@ -1487,7 +1487,7 @@
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                    </div> 
+                                                    </div>
                                                 </li>
 
                                                 <li class="activity-list">
@@ -1512,7 +1512,7 @@
                                                                     <a class="text-muted dropdown-toggle font-size-24" role="button" data-bs-toggle="dropdown" aria-haspopup="true">
                                                                         <i class="mdi mdi-dots-vertical"></i>
                                                                     </a>
-                
+
                                                                     <div class="dropdown-menu dropdown-menu-end">
                                                                         <a class="dropdown-item" href="#">Action</a>
                                                                         <a class="dropdown-item" href="#">Another action</a>
@@ -1523,10 +1523,10 @@
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                    </div> 
+                                                    </div>
                                                 </li>
                                             </ul>
-                                        </div>    
+                                        </div>
                                     </div>
                                     <!-- end card body -->
                                 </div>

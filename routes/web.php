@@ -16,10 +16,19 @@ Route::middleware(['auth'])->group(function () {
         return view('pages.dashboard.index');
     })->name('home');
 
+    // progress belajar
+    Route::get('/progress', function (){
+        return view('pages.progress.index');
+    })->name('progress');
 
-    // profile
-    Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
-    Route::post('/profile/upload', [ProfileController::class, 'uploadProfile'])->name('user.avatar.edit');
+    Route::get('/pengajuan', function (){
+        return view('pages.pengajuan.index');
+    })->name('pengajuan');
+
+    Route::get('/room', function (){
+        return view('pages.room.index');
+    })->name('room');
+
 
     // history transaksi
     Route::get('/transaksi/penjual', function () {
