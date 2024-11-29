@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DaftarPengajuanController;
 use App\Http\Controllers\PengajuanController;
 use App\Http\Controllers\RoomBuyerController;
 use App\Http\Controllers\RoomSellerController;
@@ -25,6 +26,10 @@ Route::middleware(['auth'])->group(function () {
 
     Route::resource('/pengajuan', PengajuanController::class);
     Route::get('/dosen/{courseId}', [PengajuanController::class, 'getDosenByCourse']);
+
+
+    // endpoint feature dosen
+    Route::resource('/daftarpengajuan', DaftarPengajuanController::class);
 
 
     // history transaksi
