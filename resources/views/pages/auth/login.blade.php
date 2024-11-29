@@ -1,5 +1,5 @@
 <x-layouts-auth>
-    <div class="auth-full-page-content d-flex p-sm-5 p-4">
+    <div class="auth-full-page-content d-flex p-sm-5 p-4" style="width: 450px;">
         <div class="w-100">
             <div class="d-flex flex-column h-100">
                 <!-- <div class="mb-4 mb-md-5 text-center">
@@ -17,7 +17,7 @@
                 <div class="auth-content my-auto">
                     <div class="text-center">
                         <h5 class="mb-0">Welcome Back !</h5>
-                        <p class="text-muted mt-2">Sign in to continue to <span style="color: blue">Negoin</span>.</p>
+                        <p class="text-muted mt-2">Sign in to continue to <span style="color: blue">KONSULTASI</span>.</p>
                     </div>
                     @if ($errors->any())
                         <div class="alert alert-danger alert-border-left alert-dismissible fade show" role="alert"
@@ -82,13 +82,7 @@
                                 class="text-primary fw-semibold"> Signup now </a> </p>
                     </div>
                 </div>
-                <div class="mt-4 mt-md-5 text-center">
-                    <p class="mb-0">©
-                        <script>
-                            document.write(new Date().getFullYear())
-                        </script> Negoin . Crafted with <i class="mdi mdi-heart text-primary"></i> <a href="https://buildandservice.tech/" target="blank"><span class="colored">Build and Service</span></a>.
-                    </p>
-                </div>
+
             </div>
         </div>
     </div>
