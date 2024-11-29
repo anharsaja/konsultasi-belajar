@@ -7,14 +7,15 @@ use App\Models\DosenCourse;
 use App\Models\Consultation;
 use Illuminate\Http\Request;
 
-class AjukanController extends Controller
+class PengajuanController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //
+        $consultations = Consultation::all();
+        return view('pages.pengajuan.index', compact('consultations'));
     }
 
     public function getDosenByCourse($courseId)

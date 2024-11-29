@@ -1,5 +1,5 @@
 <x-layouts-dashboard>
-    
+
             <!-- start page title -->
             <div class="row">
                 <div class="col-12">
@@ -27,12 +27,12 @@
                             <div class="col-sm">
                                 <div class="mb-4">
                                     <a href="{{ route('pengajuan.create') }}" class="btn btn-light waves-effect waves-light">
-                                        <i class="bx bx-plus me-1"></i> Add Invoice
+                                        <i class="bx bx-plus me-1"></i> Tambah Ajuan
                                     </a>
                                 </div>
                             </div>
 
-                                
+
                                 <div class="col-sm-auto">
                                     <div class="d-flex align-items-center gap-1 mb-4">
                                         <div class="input-group datepicker-range">
@@ -74,6 +74,10 @@
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        @php
+                                        $counter = 1;
+                                        @endphp
+                                        @foreach($consultations as $consultation)
                                         <tr>
                                             <td>
                                                 <div class="form-check font-size-16">
@@ -81,13 +85,13 @@
                                                     <label class="form-check-label"></label>
                                                 </div>
                                             </td>
-                                            
-                                            <td><a href="javascript: void(0);" class="text-body fw-medium">1.</a> </td>
+
+                                            <td><a href="javascript: void(0);" class="text-body fw-medium">{{ $counter }}</a> </td>
                                             <td>
-                                                12 Oct, 2020
+                                                {{ explode('.', $consultation->scheduled_time)[0] }}
                                             </td>
-                                            <td>Basis Data</td>
-                                            
+                                            <td>{{ $consultation->course->course_name }}</td>
+
                                             <td>
                                                 Dr. Zarkasi Santonius
                                             </td>
@@ -99,7 +103,7 @@
                                                     <button type="button" class="btn btn-soft-light btn-sm w-xs waves-effect btn-label waves-light"><i class="bx bx-download label-icon"></i> Pdf</button>
                                                 </div>
                                             </td>
-                                            
+
                                             <td>
                                                 <div class="dropdown">
                                                     <button class="btn btn-link font-size-16 shadow-none py-0 text-muted dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -113,84 +117,10 @@
                                                 </div>
                                             </td>
                                         </tr>
-                                        <tr>
-                                            <td>
-                                                <div class="form-check font-size-16">
-                                                    <input type="checkbox" class="form-check-input">
-                                                    <label class="form-check-label"></label>
-                                                </div>
-                                            </td>
-                                            
-                                            <td><a href="javascript: void(0);" class="text-body fw-medium">2.</a> </td>
-                                            <td>
-                                                12 Oct, 2020
-                                            </td>
-                                            <td>Kecerdasan Buatan</td>
-                                            
-                                            <td>
-                                                Dr. Anang Darmawan 
-                                            </td>
-                                            <td>
-                                                <div class="badge badge-soft-danger font-size-12">reject</div>
-                                            </td>
-                                            <td>
-                                                <div>
-                                                    <button type="button" class="btn btn-soft-light btn-sm w-xs waves-effect btn-label waves-light"><i class="bx bx-download label-icon"></i> Pdf</button>
-                                                </div>
-                                            </td>
-                                            
-                                            <td>
-                                                <div class="dropdown">
-                                                    <button class="btn btn-link font-size-16 shadow-none py-0 text-muted dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                                        <i class="bx bx-dots-horizontal-rounded"></i>
-                                                    </button>
-                                                    <ul class="dropdown-menu dropdown-menu-end">
-                                                        <li><a class="dropdown-item" href="#">Edit</a></li>
-                                                        <li><a class="dropdown-item" href="#">Print</a></li>
-                                                        <li><a class="dropdown-item" href="#">Delete</a></li>
-                                                    </ul>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <div class="form-check font-size-16">
-                                                    <input type="checkbox" class="form-check-input">
-                                                    <label class="form-check-label"></label>
-                                                </div>
-                                            </td>
-                                            
-                                            <td><a href="javascript: void(0);" class="text-body fw-medium">3.</a> </td>
-                                            <td>
-                                                12 Oct, 2020
-                                            </td>
-                                            <td>Functional Programming</td>
-                                            
-                                            <td>
-                                                Dr. Haji Makruf
-                                            </td>
-                                            <td>
-                                                <div class="badge badge-soft-success font-size-12">approved</div>
-                                            </td>
-                                            <td>
-                                                <div>
-                                                    <button type="button" class="btn btn-soft-light btn-sm w-xs waves-effect btn-label waves-light"><i class="bx bx-download label-icon"></i> Pdf</button>
-                                                </div>
-                                            </td>
-                                            
-                                            <td>
-                                                <div class="dropdown">
-                                                    <button class="btn btn-link font-size-16 shadow-none py-0 text-muted dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                                        <i class="bx bx-dots-horizontal-rounded"></i>
-                                                    </button>
-                                                    <ul class="dropdown-menu dropdown-menu-end">
-                                                        <li><a class="dropdown-item" href="#">Edit</a></li>
-                                                        <li><a class="dropdown-item" href="#">Print</a></li>
-                                                        <li><a class="dropdown-item" href="#">Delete</a></li>
-                                                    </ul>
-                                                </div>
-                                            </td>
-                                        </tr>
+                                        <LeftMouse>@php
+                                        $counter ++;
+                                        @endphp@php
+                                        @endforeach
                                     </tbody>
                                 </table>
                             </div>
