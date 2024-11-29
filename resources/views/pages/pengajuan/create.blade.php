@@ -32,13 +32,14 @@
                                         <h5>Ajukan Pembelajaran</h5>
                                         <p class="card-title-desc">Fill all information below</p>
                                     </div>
-                                    <form id="profileForm">
+                                    <form id="profileForm" action="{{ route('pengajuan.store') }}" method="POST">
                                         @csrf
                                         <div class="row">
                                             <div class="col-lg-6">
                                                 <div class="mb-3">
                                                     <label for="basicpill-firstname-input" class="form-label">Nama
                                                         Lengkap</label>
+                                                    <input type="hidden" name="mahasiswa_id" value="{{ Auth::user()->id }}">
                                                     <input name="name" type="text"
                                                         class="form-control disabled-input"
                                                         value="{{ Auth::user()->name }}" id="basicpill-firstname-input"
@@ -58,36 +59,35 @@
                                                 </div>
                                             </div>
                                         </div>
+
+
                                         <div class="row">
                                             <div class="col-lg-6">
                                                 <div class="mb-3">
-                                                    <label for="basicpill-email-input" class="form-label">Mata Kuliah</label>
-                                                    <select name="gender" class="form-select"
-                                                        id="basicpill-email-input">
-                                                        <option disabled selected>Select</option>
-                                                        <option value="male">Laki - Laki</option>
-                                                        <option value="female">Perempuan</option>
+                                                    <label for="courses" class="form-label">Mata Kuliah</label>
+                                                    <select name="course_id" class="form-select" id="courses">
+                                                        <option disabled selected>Pilih Kursus</option>
+                                                        @foreach($courses as $course)
+                                                            <option value="{{ $course->id }}">{{ $course->course_name }}</option>
+                                                        @endforeach
                                                     </select>
                                                 </div>
                                             </div>
                                             <div class="col-lg-6">
                                                 <div class="mb-3">
-                                                    <label for="basicpill-email-input" class="form-label">Dosen Pembimbing</label>
-                                                    <select name="gender" class="form-select"
-                                                        id="basicpill-email-input">
-                                                        <option disabled selected>Select</option>
-                                                        <option value="male">Laki - Laki</option>
-                                                        <option value="female">Perempuan</option>
+                                                    <label for="dosencourses" class="form-label">Dosen Pembimbing</label>
+                                                    <select name="dosen_id" class="form-select" id="dosencourses">
+                                                        <option disabled selected>Pilih Dosen Pembimbing</option>
                                                     </select>
                                                 </div>
                                             </div>
                                         </div>
+
                                         <div class="row">
                                             <div class="col-lg-6">
                                                 <div class="mb-3">
                                                     <label for="example-date-input" class="form-label">Tanggal Pengajuan</label>
-                                                    <input name="tgl_lahir" class="form-control" type="date"
-                                                        value="2019-08-19" id="example-date-input">
+                                                    <input name="scheduled_time" class="form-control" type="date" id="example-date-input" >
                                                 </div>
                                             </div>
                                         </div>
@@ -95,13 +95,12 @@
                                             <div class="col-lg-12">
                                                 <div class="mb-3">
                                                     <label for="basicpill-biografi-input" class="form-label">Note (opsional)</label>
-                                                    <textarea name="biografi" id="basicpill-biografi-input" class="form-control" rows="4"
+                                                    <textarea name="note" id="basicpill-biografi-input" class="form-control" rows="4"
                                                         placeholder="Tambahkan catatan tambahan"></textarea>
                                                 </div>
                                             </div>
                                         </div>
-                                        <!-- <button type="button" class="btn btn-primary">Simpan <i class="bx bx-chevron-right ms-1"></i></button> -->
-                                        <a type="button" class="btn btn-primary" href="{{ route('pengajuan') }}">Simpan <i class="bx bx-chevron-right ms-1"></i></a>
+                                        <button type="submit" class="btn btn-primary">Simpan <i class="bx bx-chevron-right ms-1"></i></button>
                                     </form>
                                 </div>
                             </div>
@@ -110,4 +109,61 @@
         </div>
         <!-- end col -->
     </div>
+
+<script>
+    document.getElementById('courses').addEventListener('change', function () {
+    const courseId = this.value; // Ambil course_id dari dropdown
+    const dosenSelect = document.getElementById('dosencourses');
+
+    // Kosongkan dropdown dosencourses
+    dosenSelect.innerHTML = '<option disabled selected>Pilih Dosen Pembimbing</option>';
+
+    // Lakukan AJAX request untuk mendapatkan dosencourses
+    fetch(`/dosen/${courseId}`)
+        .then(response => response.json())
+        .then(data => {
+            // Tambahkan opsi dosen yang relevan
+            data.forEach(dosencourse => {
+                const option = document.createElement('option');
+                option.value = dosencourse.id;
+                option.textContent = dosencourse.lecturer.name; // Jika lecturer memiliki kolom name
+                dosenSelect.appendChild(option);
+            });
+        })
+        .catch(error => console.error('Error fetching dosen:', error));
+});
+
+// Saat halaman dimuat, muat pilihan sebelumnya
+window.addEventListener('DOMContentLoaded', function () {
+    const selectedCourse = document.getElementById('courses');
+
+    if (selectedCourse.value) {
+        // document.getElementById('courses').value = selectedCourse;
+        // Lakukan fetch untuk dosencourses
+        fetch(`/dosen/${selectedCourse.value}`)
+            .then(response => response.json())
+            .then(data => {
+                const dosenSelect = document.getElementById('dosencourses');
+                dosenSelect.innerHTML = '<option disabled selected>Pilih Dosen Pembimbing</option>';
+                data.forEach(dosencourse => {
+                    const option = document.createElement('option');
+                    option.value = dosencourse.id;
+                    option.textContent = dosencourse.lecturer.name;
+                    dosenSelect.appendChild(option);
+                });
+            });
+    }
+
+       // Ambil elemen input
+    const dateInput = document.getElementById('example-date-input');
+    
+    // Dapatkan tanggal hari ini dalam format yyyy-mm-dd
+    const today = new Date().toISOString().split('T')[0];
+    
+    // Tetapkan nilai awal pada input
+    dateInput.value = today;
+});
+
+
+</script>
 </x-layouts-dashboard>

@@ -26,7 +26,7 @@
 
                             <div class="col-sm">
                                 <div class="mb-4">
-                                    <a href="{{ route('ajukan') }}" class="btn btn-light waves-effect waves-light">
+                                    <a href="{{ route('pengajuan.create') }}" class="btn btn-light waves-effect waves-light">
                                         <i class="bx bx-plus me-1"></i> Add Invoice
                                     </a>
                                 </div>
@@ -43,7 +43,6 @@
                                             <a class="btn btn-link text-muted py-1 font-size-16 shadow-none dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                                 <i class="bx bx-dots-horizontal-rounded"></i>
                                             </a>
-                                          
                                             <ul class="dropdown-menu dropdown-menu-end">
                                                 <li><a class="dropdown-item" href="#">Action</a></li>
                                                 <li><a class="dropdown-item" href="#">Another action</a></li>

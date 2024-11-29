@@ -16,10 +16,10 @@ return new class extends Migration
             $table->foreignId('mahasiswa_id')->constrained('users', 'id')->cascadeOnDelete();
             $table->foreignId('course_id')->constrained('courses', 'id')->cascadeOnDelete();
             $table->foreignId('dosen_id')->constrained('users', 'id')->cascadeOnDelete();
-            $table->text('issue');
+            $table->text('issue')->nullable();
             $table->enum('status', ['pending', 'approved', 'rejected', 'rescheduled'])->default('pending');
             $table->text('reason_rejected')->nullable();
-            $table->dateTime('scheduled_time')->nullable();
+            $table->dateTime('scheduled_time');
             $table->text('note')->nullable();
             $table->timestamps();
         });
