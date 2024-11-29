@@ -6,7 +6,7 @@ use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
-class layouts-auth extends Component
+class DashboardLayouts extends Component
 {
     /**
      * Create a new component instance.
@@ -21,6 +21,6 @@ class layouts-auth extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('layouts.auth-layouts');
+        return view('layouts.dashboard-layouts');
     }
 }

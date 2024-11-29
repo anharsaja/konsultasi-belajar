@@ -48,7 +48,7 @@ class PengajuanController extends Controller
             "scheduled_time" => "required"
         ]);
         Consultation::create($request->all());
-        return redirect()->route("pengajuan");
+        return redirect()->route("pengajuan.index");
     }
 
     /**
