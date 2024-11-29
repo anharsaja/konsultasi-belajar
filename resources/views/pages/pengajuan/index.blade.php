@@ -9,7 +9,7 @@
                         <div class="page-title-right">
                             <ol class="breadcrumb m-0">
                                 <li class="breadcrumb-item"><a href="javascript: void(0);">Invoices</a></li>
-                                <li class="breadcrumb-item active">Invoice List</li>
+                                <li class="breadcrumb-item active">Pengajuan Details</li>
                             </ol>
                         </div>
 
@@ -23,11 +23,16 @@
                     <div class="card">
                         <div class="card-body">
                             <div class="row">
-                                <div class="col-sm">
-                                    <div class="mb-4">
-                                        <button type="button" class="btn btn-light waves-effect waves-light"><i class="bx bx-plus me-1"></i> Add Invoice</button>
-                                    </div>
+
+                            <div class="col-sm">
+                                <div class="mb-4">
+                                    <a href="{{ route('ajukan') }}" class="btn btn-light waves-effect waves-light">
+                                        <i class="bx bx-plus me-1"></i> Add Invoice
+                                    </a>
                                 </div>
+                            </div>
+
+                                
                                 <div class="col-sm-auto">
                                     <div class="d-flex align-items-center gap-1 mb-4">
                                         <div class="input-group datepicker-range">

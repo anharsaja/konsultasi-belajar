@@ -29,6 +29,10 @@ Route::middleware(['auth'])->group(function () {
         return view('pages.room.index');
     })->name('room');
 
+    Route::get('/ajukan', function (){
+        return view('pages.pengajuan.create');
+    })->name('ajukan');
+
 
     // history transaksi
     Route::get('/transaksi/penjual', function () {
