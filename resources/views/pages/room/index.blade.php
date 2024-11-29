@@ -20,7 +20,7 @@
     <div class="row align-items-center">
         <div class="col-md-6">
             <div class="mb-3">
-                <h5 class="card-title">Room List <span class="text-muted fw-normal">({{ count($rooms) }})</span></h5>
+                <h5 class="card-title">Room List <span class="text-muted fw-normal">5</span></h5>
             </div>
         </div>
 
@@ -40,17 +40,6 @@
                 </div>
                 <div>
 
-                    @if (Route::currentRouteName() == 'room-seller.index')
-                        <button class="btn btn-light" data-bs-toggle="modal" data-bs-target="#addRoom"
-                            data-bs-whatever="@mdo">
-                            <i class="bx bx-plus me-1"></i>Add Room
-                        </button>
-                    @elseif (Route::currentRouteName() == 'room-buyer.index')
-                        <button class="btn btn-light" data-bs-toggle="modal" data-bs-target="#joinRoom"
-                            data-bs-whatever="@mdo">
-                            <i class="bx bx-plus me-1"></i>Join Room
-                        </button>
-                    @endif
                 </div>
 
                 <div class="dropdown">
@@ -72,7 +61,6 @@
     <!-- end row -->
 
     <div class="row">
-        @foreach ($rooms as $room)
             <div class="col-xl-3 col-sm-6">
                 <div class="card text-center">
                     <div class="card-body">
@@ -83,7 +71,7 @@
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-end">
-                                <form action="{{ route('room-seller.destroy', $room->id) }}" method="POST">
+                                <form action="#" method="POST">
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" class="dropdown-item">Hapus</button>
@@ -98,17 +86,17 @@
                             <img src="{{ asset('assets/images/users/avatar-2.jpg') }}" alt=""
                                 class="avatar-xl rounded-circle img-thumbnail">
                         </div>
-                        <h5 class="font-size-16 mb-1"><a href="#" class="text-body">{{ $room->title }}</a></h5>
-                        <p class="text-muted mb-2">{{ $room->seller->name }}</p>
+                        <h5 class="font-size-16 mb-1"><a href="#" class="text-body">tittle</a></h5>
+                        <p class="text-muted mb-2">seller name</p>
                         <span class="badge bg-success">Success</span>
 
                     </div>
 
                     <div class="btn-group" role="group">
-                        <a href="{{ route('profile') }}" class="btn btn-outline-light text-truncate"><i
+                        <a href="#" class="btn btn-outline-light text-truncate"><i
                                 class="uil uil-user me-1"></i> Profile</a>
                         <a href="javascript: void(0);" class="btn btn-outline-light text-truncate copy-code"
-                            data-id="{{ $room->id }}">
+                            data-id="#">
                             <i class="uil uil-user me-1"></i> Share
                         </a>
 
@@ -126,7 +114,6 @@
                 </div>
                 <!-- end card -->
             </div>
-        @endforeach
         <!-- end col -->
     </div>
     <!-- end row -->
@@ -135,13 +122,12 @@
         <div class="col-sm-6">
             <div>
                 <p class="mb-sm-0">
-                    Showing {{ $rooms->firstItem() }} to {{ $rooms->lastItem() }} of {{ $rooms->total() }} entries
+                    Showing 0 to 0 of 0 entries
                 </p>
             </div>
         </div>
         <div class="col-sm-6">
             <div class="float-sm-end">
-                {{ $rooms->links('components.pagination.custom') }}
                 {{-- <ul class="pagination mb-sm-0">
                     <li class="page-item disabled">
                         <a href="#" class="page-link"><i class="mdi mdi-chevron-left"></i></a>
@@ -173,7 +159,7 @@
     {{-- Modallll --}}
     <div class="modal fade" id="addRoom" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
-            <form class="modal-content" action="{{ route('room-seller.store') }}" method="POST">
+            <form class="modal-content" action="#" method="POST">
                 @csrf
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">Create Room</h5>
@@ -198,7 +184,7 @@
     {{-- Modallll --}}
     <div class="modal fade" id="joinRoom" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
-            <form class="modal-content" action="{{ route('room-buyer.store') }}" method="POST">
+            <form class="modal-content" action="#" method="POST">
                 @csrf
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">Join Room</h5>
