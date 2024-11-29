@@ -3,6 +3,7 @@
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\AjukanController;
 use App\Http\Controllers\RoomBuyerController;
 use App\Http\Controllers\RoomSellerController;
 use App\Http\Middleware\CheckProfile;
@@ -21,17 +22,21 @@ Route::middleware(['auth'])->group(function () {
         return view('pages.progress.index');
     })->name('progress');
 
-    Route::get('/pengajuan', function (){
-        return view('pages.pengajuan.index');
-    })->name('pengajuan');
-
+    
     Route::get('/room', function (){
         return view('pages.room.index');
     })->name('room');
 
-    Route::get('/ajukan', function (){
-        return view('pages.pengajuan.create');
-    })->name('ajukan');
+    Route::resource('/pengajuan', AjukanController::class);
+    Route::get('/dosen/{courseId}', [AjukanController::class, 'getDosenByCourse']);
+
+    
+    Route::get('/pengajuan', function (){
+        return view('pages.pengajuan.index');
+    })->name('pengajuan');
+    // Route::get('/ajukan', function (){
+    //     return view('pages.pengajuan.create');
+    // })->name('ajukan');
 
 
     // history transaksi
