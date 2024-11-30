@@ -32,7 +32,7 @@
                         <div class="mb-4 text-center">
                             <h5>Ajukan Konsultasi</h5>
                         </div>
-                        <form action="{{ route('daftarpengajuan.update', $consultation->id) }}" method="POST">
+                        <form action="{{ route('daftar-pengajuan.update', $consultation->id) }}" method="POST">
                             @csrf
                             @method('PUT')
                             <div class="row">

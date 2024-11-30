@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('mahasiswa_id')->constrained('users', 'id')->cascadeOnDelete();
             $table->foreignId('course_id')->constrained('courses', 'id')->cascadeOnDelete();
-            $table->text('progress_detail');
+            $table->text('progress_detail')->nullable();
             $table->timestamps();
         });
     }

@@ -31,18 +31,19 @@
                                 @if (Auth::user()->role === 'dosen')
                                     <li class="nav-item dropdown">
                                         <a class="nav-link dropdown-toggle arrow-none"
-                                            href="{{ route('daftarpengajuan.index') }}" id="topnav-dashboard"
+                                            href="{{ route('daftar-pengajuan.index') }}" id="topnav-dashboard"
                                             role="button">
                                             <i data-feather="arrow-up"></i><span data-key="t-dashboards">Daftar
                                                 Pengajuan</span>
                                         </a>
                                     </li>
 
-                                    {{-- <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle arrow-none" href="{{ route('progress') }}" id="topnav-dashboard" role="button">
-                                        <i data-feather="book"></i><span data-key="t-dashboards">Progress Belajar</span>
-                                    </a>
-                                </li> --}}
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle arrow-none"
+                                            href="{{ route('progressbelajarmhs') }}" id="topnav-dashboard" role="button">
+                                            <i data-feather="book"></i><span data-key="t-dashboards">Progress Belajar</span>
+                                        </a>
+                                    </li>
                                 @endif
 
 
