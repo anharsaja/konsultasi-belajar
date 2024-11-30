@@ -95,8 +95,8 @@
                                 <div class="col-lg-12">
                                     <div class="mb-3">
                                         <label for="basicpill-biografi-input" class="form-label">Issue</label>
-                                        <textarea name="note" id="basicpill-biografi-input" disabled class="form-control" rows="4"
-                                            style="background-color: #e9ecef; cursor: not-allowed;">{{ $consultation->note }}</textarea>
+                                        <textarea name="issue" id="basicpill-biografi-input" disabled class="form-control" rows="4"
+                                            style="background-color: #e9ecef; cursor: not-allowed;">{{ $consultation->issue }}</textarea>
                                     </div>
                                 </div>
                             </div>

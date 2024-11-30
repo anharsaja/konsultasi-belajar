@@ -30,47 +30,8 @@ Route::middleware(['auth'])->group(function () {
 
     // endpoint feature dosen
     Route::resource('/daftarpengajuan', DaftarPengajuanController::class);
-
-
-    // history transaksi
-    Route::get('/transaksi/penjual', function () {
-        return view('pages.transaksi.index');
-    })->name('transaksi.penjual');
-    Route::get('/transaksi/pembeli', function () {
-        return view('pages.transaksi.index');
-    })->name('transaksi.pembeli');
-
-    // history transaksi details
-    Route::get('/transaksi/penjual/detail', function () {
-        return view('pages.transaksi.detail');
-    })->name('transaksi.detail.penjual');
-    Route::get('/transaksi/pembeli/detail', function () {
-        return view('pages.transaksi.detail');
-    })->name('transaksi.detail.pembeli');
-
-    // Room Seller
-    Route::resource('/room-seller', RoomSellerController::class);
-    Route::get('/get-code/{id}', [RoomSellerController::class, 'getCode'])->name('get-code');
-    Route::post('/chat/', [RoomSellerController::class, 'chat'])->name('chat.store');
-
-    // Room Buyer
-    Route::resource('/room-buyer', RoomBuyerController::class);
-
-
-    // invoice
-    Route::get('/invoice', function () {
-        return view('pages.invoice.index');
-    })->name('invoice');
-
-    // invoice details
-    Route::get('/invoice/detail', function () {
-        return view('pages.invoice.detail');
-    })->name('invoice.detail');
-
-    // profile cteate
-    Route::get('/biodata', function () {
-        return view('pages.profile.create');
-    })->name('biodata');
+    Route::get('/daftarpengajuan/catatanhasil/{id}', [DaftarPengajuanController::class,'catatanKonsultasi'])->name('catatankonsultasi');
+    Route::put('/catatanhasilkonsul/{id}', [DaftarPengajuanController::class,'storeCatatanHasil'])->name('addcatatankonsul');
 });
 
 
