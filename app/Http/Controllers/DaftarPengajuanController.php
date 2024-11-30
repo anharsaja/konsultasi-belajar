@@ -48,28 +48,53 @@ class DaftarPengajuanController extends Controller
         }
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
+    public function catatanKonsultasi(string $id)
     {
-        //
+        try {
+            $consultation = collect(DB::select(
+                "SELECT 
+                            consultations.id,
+                            consultations.issue,
+                            consultations.status,
+                            consultations.scheduled_time,
+                            consultations.note,
+                            consultations.reason_rejected,
+                            students.name AS student_name,
+                            courses.course_name
+                        FROM consultations
+                        INNER JOIN courses ON consultations.course_id = courses.id
+                        INNER JOIN users AS students ON consultations.mahasiswa_id = students.id
+                        WHERE consultations.id = ?",
+                [$id]
+            ))->first();
+            return view("pages.daftarpengajuan.catatanhasil", compact("consultation"));
+        } catch (\Exception $e) {
+            return redirect()->back()->with('error', $e->getMessage());
+        }
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
+    public function storeCatatanHasil(Request $request, string $id)
     {
-        //
-    }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
+        $request->validate([
+            "note" => "required|string",
+        ]);
+
+        try {
+        $consultation = Consultation::findOrFail($id);
+
+        $consultation->note = $request->note;
+        $consultation->save();
+
+
+        return redirect()->route('daftarpengajuan.index')
+        ->with('success', 'Catatan berhasil ditambahkan.');
+
+        } catch (\Exception $e) {
+            return redirect()->back()->with('error', $e->getMessage());
+        }
+
+
     }
 
     /**

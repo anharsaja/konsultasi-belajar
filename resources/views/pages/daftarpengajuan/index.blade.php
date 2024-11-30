@@ -87,7 +87,7 @@
                                         <td>{{ $consultation->course_name }}</td>
 
                                         <td>
-                                            {{ \Illuminate\Support\Str::limit($consultation->note, 30, '...') }}
+                                            {{ \Illuminate\Support\Str::limit($consultation->issue, 30, '...') }}
                                         </td>
                                         <td>
                                             {{ \Carbon\Carbon::parse($consultation->preferred_time)->format('Y-m-d') }}
@@ -119,7 +119,11 @@
                                                     <li><a class="dropdown-item"
                                                             href="{{ route('daftarpengajuan.edit', $consultation->id) }}">Tanggapi</a>
                                                     </li>
-                                                    <li><a class="dropdown-item" href="#">Beri Nilai</a></li>
+                                                    <li><a class="dropdown-item"
+                                                            href="{{ route('catatankonsultasi', $consultation->id) }}">Catatan
+                                                            hasil</a></li>
+                                                    <li><a class="dropdown-item" href="#">Progress belajar</a>
+                                                    </li>
                                                 </ul>
                                             </div>
                                         </td>
