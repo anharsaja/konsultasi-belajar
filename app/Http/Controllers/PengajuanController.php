@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Course;
 use App\Models\DosenCourse;
 use App\Models\Consultation;
+use App\Models\Progress;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -49,6 +50,18 @@ class PengajuanController extends Controller
             "scheduled_time" => "required|date"
         ]);
         Consultation::create($request->all());
+
+        $existingProgress = Progress::where('mahasiswa_id', Auth::user()->id)
+            ->where('course_id', $request->course_id)
+            ->exists();
+
+        if (!$existingProgress) {
+            // Jika progress belum ada, maka buat entri baru
+            Progress::create([
+                'mahasiswa_id' => Auth::user()->id,
+                'course_id' => $request->course_id,
+            ]);
+        }
         return redirect()->route("pengajuan.index");
     }
 

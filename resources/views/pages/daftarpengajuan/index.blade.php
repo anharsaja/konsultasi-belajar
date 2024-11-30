@@ -22,34 +22,11 @@
         <div class="col-lg-12">
             <div class="card">
                 <div class="card-body">
-                    <div class="row">
-                        <div class="col-sm-auto">
-                            <div class="d-flex align-items-center mb-4 gap-1">
-                                <div class="input-group datepicker-range">
-                                    <input type="text" class="form-control flatpickr-input" data-input
-                                        aria-describedby="date1">
-                                    <button class="input-group-text" id="date1" data-toggle><i
-                                            class="bx bx-calendar-event"></i></button>
-                                </div>
-                                <div class="dropdown">
-                                    <a class="btn btn-link text-muted font-size-16 dropdown-toggle py-1 shadow-none"
-                                        href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                        <i class="bx bx-dots-horizontal-rounded"></i>
-                                    </a>
-                                    <ul class="dropdown-menu dropdown-menu-end">
-                                        <li><a class="dropdown-item" href="#">Action</a></li>
-                                        <li><a class="dropdown-item" href="#">Another action</a></li>
-                                        <li><a class="dropdown-item" href="#">Something else here</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                     <!-- end row -->
 
                     <div class="table-responsive">
 
-                        <table class="datatable dt-responsive table-check nowrap table align-middle"
+                        <table class="datatable dt-responsive table-check table align-middle"
                             style="border-collapse: collapse; border-spacing: 0 8px; width: 100%;">
                             <thead>
                                 <tr class="bg-transparent">
@@ -97,7 +74,7 @@
                                                 'pending' => 'badge badge-soft-warning', // Warna kuning untuk pending
                                                 'approved' => 'badge badge-soft-success', // Warna hijau untuk approved
                                                 'rejected' => 'badge badge-soft-danger', // Warna merah untuk rejected
-                                                'rescheduled' => 'badge badge-soft-success', // Warna biru untuk rescheduled
+                                                'rescheduled' => 'badge badge-soft-primary', // Warna biru untuk rescheduled
                                             ];
                                         @endphp
 
@@ -117,7 +94,7 @@
                                                 </button>
                                                 <ul class="dropdown-menu dropdown-menu-end">
                                                     <li><a class="dropdown-item"
-                                                            href="{{ route('daftarpengajuan.edit', $consultation->id) }}">Tanggapi</a>
+                                                            href="{{ route('daftar-pengajuan.edit', $consultation->id) }}">Tanggapi</a>
                                                     </li>
                                                     <li><a class="dropdown-item"
                                                             href="{{ route('catatankonsultasi', $consultation->id) }}">Catatan

@@ -28,6 +28,7 @@ class DaftarPengajuanController extends Controller
                             consultations.scheduled_time,
                             consultations.note,
                             students.name AS student_name,
+                            students.id AS student_id,
                             courses.course_name
                         FROM consultations
                         INNER JOIN courses ON consultations.course_id = courses.id
@@ -42,6 +43,8 @@ class DaftarPengajuanController extends Controller
                 $consultation->preferred_time = Carbon::parse($consultation->scheduled_time)->format('Y-m-d');
                 $consultation->issue = Str::limit($consultation->issue, 50, '...');
             }
+
+            
             return view("pages.daftarpengajuan.index", compact("consultations"));
         } catch (\Exception $e) {
             return redirect()->back()->with('error', $e->getMessage());
@@ -50,20 +53,15 @@ class DaftarPengajuanController extends Controller
 
     public function catatanKonsultasi(string $id)
     {
+       
         try {
             $consultation = collect(DB::select(
                 "SELECT 
                             consultations.id,
                             consultations.issue,
                             consultations.status,
-                            consultations.scheduled_time,
-                            consultations.note,
-                            consultations.reason_rejected,
-                            students.name AS student_name,
-                            courses.course_name
+                            consultations.note
                         FROM consultations
-                        INNER JOIN courses ON consultations.course_id = courses.id
-                        INNER JOIN users AS students ON consultations.mahasiswa_id = students.id
                         WHERE consultations.id = ?",
                 [$id]
             ))->first();
@@ -87,7 +85,7 @@ class DaftarPengajuanController extends Controller
         $consultation->save();
 
 
-        return redirect()->route('daftarpengajuan.index')
+        return redirect()->route('daftar-pengajuan.index')
         ->with('success', 'Catatan berhasil ditambahkan.');
 
         } catch (\Exception $e) {
@@ -145,7 +143,7 @@ class DaftarPengajuanController extends Controller
 
         $consultation->save();
 
-        return redirect()->route('daftarpengajuan.index')
+        return redirect()->route('daftar-pengajuan.index')
         ->with('success', 'Data berhasil diperbarui.');
     }
 
