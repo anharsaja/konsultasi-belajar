@@ -10,6 +10,14 @@ class AuthenticatedSessionController extends Controller
 {
    public function create()
     {
+        // return view('pages.auth.login');
+            // Cek apakah user sudah login
+        if (auth()->check()) {
+        // Redirect ke home jika sudah login
+            return redirect()->route('home');
+    }
+
+        // Tampilkan halaman login jika belum login
         return view('pages.auth.login');
     }
 
