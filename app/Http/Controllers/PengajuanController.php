@@ -6,6 +6,7 @@ use App\Models\Course;
 use App\Models\DosenCourse;
 use App\Models\Consultation;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PengajuanController extends Controller
 {
@@ -14,7 +15,7 @@ class PengajuanController extends Controller
      */
     public function index()
     {
-        $consultations = Consultation::all();
+        $consultations = Consultation::where('mahasiswa_id', Auth::user()->id)->get();
         return view('pages.pengajuan.index', compact('consultations'));
     }
 
