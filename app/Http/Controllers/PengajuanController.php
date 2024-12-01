@@ -45,7 +45,7 @@ class PengajuanController extends Controller
         $request->validate([
             "course_id" => "required",
             "dosen_id" => "required",
-            "scheduled_time" => "required"
+            "scheduled_time" => "required|date"
         ]);
         Consultation::create($request->all());
         return redirect()->route("pengajuan.index");
