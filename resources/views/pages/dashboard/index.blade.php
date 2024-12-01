@@ -27,7 +27,7 @@
                                             <div class="col-6">
                                                 <span class="text-muted mb-3 lh-1 d-block ">Mata Kuliah</span>
                                                 <h4 class="mb-3">
-                                                    <span class="counter-value" data-target="56"></span>
+                                                    <span class="">{{ $courses }}</span>
                                                 </h4>
                                             </div>
                                             <div class="col-6">
@@ -35,30 +35,7 @@
                                             </div>
                                         </div>
                                         <div class="text-nowrap">
-                                            <span class="text-muted font-size-13">Keseluruhan Pengajuan</span>
-                                        </div>
-                                    </div><!-- end card body -->
-                                </div><!-- end card -->
-                            </div><!-- end col-->
-
-                            <div class="col-xl-3 col-md-6">
-                                <!-- card -->
-                                <div class="card card-h-100">
-                                    <!-- card body -->
-                                    <div class="card-body">
-                                        <div class="row align-items-center">
-                                            <div class="col-6">
-                                                <span class="text-muted mb-3 lh-1 d-block ">Pending</span>
-                                                <h4 class="mb-3">
-                                                    <span class="counter-value" data-target="20">0</span>
-                                                </h4>
-                                            </div>
-                                            <div class="col-6">
-                                                <div id="mini-chart2" data-colors='["#5156be"]' class="apex-charts mb-2"></div>
-                                            </div>
-                                        </div>
-                                        <div class="text-nowrap">
-                                            <span class="text-muted font-size-13">Keseluruhan</span>
+                                            <span class="text-muted font-size-13">Yang diajukan</span>
                                         </div>
                                     </div><!-- end card body -->
                                 </div><!-- end card -->
@@ -73,7 +50,7 @@
                                                                                        <div class="col-6">
     <span class="text-muted  mb-3 lh-1 d-block">Pengajuan Terakhir</span>
     <h4 class="mb-3">
-        <span class="badge bg-success text-white p-2">Disetujui</span>
+        <span class="{{ $status_class }} text-white p-2">{{ $lastest_status }}</span>
     </h4>
 </div>
                                             <div class="col-6">
