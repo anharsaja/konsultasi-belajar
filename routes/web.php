@@ -2,28 +2,17 @@
 
 use App\Http\Controllers\DaftarPengajuanController;
 use App\Http\Controllers\PengajuanController;
-use App\Http\Controllers\RoomBuyerController;
-use App\Http\Controllers\RoomSellerController;
+use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Route;
 
 require_once __DIR__."/auth/login.php";
 
 // after dashboard
 Route::middleware(['auth'])->group(function () {
-    Route::get('/', function () {
-        return view('pages.dashboard.index');
-    })->name('home');
+    // dashboard
+    Route::get('/', [DashboardController::class, 'index'])->name('home');
 
-    // progress belajar
-    Route::get('/progress', function (){
-        return view('pages.progress.index');
-    })->name('progress');
-
-
-    Route::get('/room', function (){
-        return view('pages.room.index');
-    })->name('room');
-
+    // pengajuan
     Route::resource('/pengajuan', PengajuanController::class);
     Route::get('/dosen/{courseId}', [PengajuanController::class, 'getDosenByCourse']);
 
@@ -32,6 +21,11 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('/daftarpengajuan', DaftarPengajuanController::class);
     Route::get('/daftarpengajuan/catatanhasil/{id}', [DaftarPengajuanController::class,'catatanKonsultasi'])->name('catatankonsultasi');
     Route::put('/catatanhasilkonsul/{id}', [DaftarPengajuanController::class,'storeCatatanHasil'])->name('addcatatankonsul');
+
+        // progress belajar
+    Route::get('/progress', function (){
+        return view('pages.progress.index');
+    })->name('progress');
 });
 
 
