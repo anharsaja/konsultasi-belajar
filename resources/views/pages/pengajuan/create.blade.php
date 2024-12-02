@@ -123,7 +123,7 @@
                     // Tambahkan opsi dosen yang relevan
                     data.forEach(dosencourse => {
                         const option = document.createElement('option');
-                        option.value = dosencourse.id;
+                        option.value = dosencourse.dosen_id;
                         option.textContent = dosencourse.lecturer
                             .name; // Jika lecturer memiliki kolom name
                         dosenSelect.appendChild(option);
@@ -146,7 +146,7 @@
                         dosenSelect.innerHTML = '<option disabled selected>Pilih Dosen Pembimbing</option>';
                         data.forEach(dosencourse => {
                             const option = document.createElement('option');
-                            option.value = dosencourse.id;
+                            option.value = dosencourse.dosen_id;
                             option.textContent = dosencourse.lecturer.name;
                             dosenSelect.appendChild(option);
                         });
