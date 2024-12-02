@@ -63,7 +63,7 @@
                                             <span class="{{ $badgeClasses[$consultation->status] ?? 'badge badge-secondary'}} font-size-12"> {{ ucfirst($consultation->status)}} </span>
                                         </td>
                                         <td class="d-flex justify-content-start">
-                                            <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#addRoom{{$consultation->id}}" data-bs-whatever="@mdo">Notes</button>
+                                            <button @if ($consultation->status == 'pending') disabled @endif class="btn btn-success" data-bs-toggle="modal" data-bs-target="#addRoom{{$consultation->id}}" data-bs-whatever="@mdo">Notes</button>
 
 
                                             <!-- Modallll -->
@@ -73,20 +73,25 @@
                                                         @csrf
                                                         <div class="modal-header">
                                                             <h5 class="modal-title" id="exampleModalLabel">Dosen Notes</h5>
-                                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                         </div>
                                                         <div class="modal-body">
                                                             <div>
                                                                 <div class="mb-3">
+                                                                    <label for="recipient-name" class="col-form-label">Issue</label>
+                                                                    <textarea name="issue" id="basicpill-biografi-input" disabled class="form-control" rows="4"
+                                                                        style="background-color: #e9ecef; cursor: not-allowed;">{{ $consultation->Issue ?? "Mahasiswa tidak memiliki issue"}}</textarea>
+                                                                </div>
+                                                            </div>
+                                                             <div>
+                                                                <div class="mb-3">
                                                                     <label for="recipient-name" class="col-form-label">Notes</label>
                                                                     <textarea name="issue" id="basicpill-biografi-input" disabled class="form-control" rows="4"
-                                                                        style="background-color: #e9ecef; cursor: not-allowed;">{{ $consultation->issue }}</textarea>
+                                                                        style="background-color: #e9ecef; cursor: not-allowed;">{{ $consultation->note ?? "Tidak ada catatan dari dosen"}}</textarea>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                         <div class="modal-footer">
-                                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                                            <button type="submit" class="btn btn-primary">Create</button>
+                                                            <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
                                                         </div>
                                                     </form>
                                                 </div>
