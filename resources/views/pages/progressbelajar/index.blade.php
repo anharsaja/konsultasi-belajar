@@ -40,7 +40,7 @@
                                     <th style="width: 120px;">No</th>
                                     <th>Mahasiswa</th>
                                     <th>Mata Kuliah</th>
-                                    <th style="width: 90px;">Action</th>
+                                    <th style="width: 90px;" class="mx-auto text-center">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -60,8 +60,8 @@
                                         </td>
                                         <td>{{ $student->course_name }}</td>
 
-                                        <td>
-                                            <a class="btn btn-primary font-size-16"
+                                        <td style="width: 200px" class="d-flex">
+                                            <a class="btn btn-primary font-size-16 mx-auto px-8"
                                                 href="{{ route('progressbelajarmhs.edit', ['studentId' => $student->student_id, 'courseId' => $student->course_id]) }}">Beri
                                                 Progress</a>
                                         </td>

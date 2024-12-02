@@ -6,7 +6,8 @@
                         <ul class="navbar-nav">
                             @auth
                                 <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle arrow-none" href="{{ route('home') }}"
+                                    <a class="nav-link dropdown-toggle arrow-none"
+                                        href="{{ Auth::user()->role == 'mahasiswa' ? route('home') : route('dashboard') }}"
                                         id="topnav-dashboard" role="button">
                                         <i data-feather="home"></i><span data-key="t-dashboards">Dashboard</span>
                                     </a>
