@@ -23,8 +23,7 @@ class ProgressBelajar extends Controller
                     JOIN progress ON users.id = progress.mahasiswa_id
                     JOIN courses ON progress.course_id = courses.id
                     JOIN dosen_courses ON courses.id = dosen_courses.course_id
-                    WHERE dosen_courses.dosen_id = ?
-                    ORDER BY users.name, courses.course_name",
+                    WHERE dosen_courses.dosen_id = ?",
             [$dosen_id]
 
         );

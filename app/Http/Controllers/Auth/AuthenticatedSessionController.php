@@ -30,10 +30,19 @@ class AuthenticatedSessionController extends Controller
 
         $credentials = $request->only('email', 'password');
 
-        if (Auth::attempt($credentials)) {
+        $user = Auth::attempt($credentials);
+
+        if ($user) {
             $request->session()->regenerate();
 
-            return redirect()->route('home');
+            if (Auth::user()->role == 'mahasiswa') {
+                return redirect()->route('home');
+                
+            } else {
+                return redirect()->route('dashboard');
+                
+            }
+
         }
 
         return back()->withErrors([

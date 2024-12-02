@@ -3,6 +3,7 @@
 use App\Http\Controllers\DaftarPengajuanController;
 use App\Http\Controllers\PengajuanController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\DashboardDosenController;
 use App\Http\Controllers\ProgressBelajar;
 use App\Http\Controllers\RoomBuyerController;
 use App\Http\Controllers\RoomSellerController;
@@ -14,6 +15,7 @@ require_once __DIR__."/auth/login.php";
 Route::middleware(['auth'])->group(function () {
     // dashboard
     Route::get('/', [DashboardController::class, 'index'])->name('home');
+    Route::get('/dashboard', [DashboardDosenController::class, 'index'])->name('dashboard');
 
     // pengajuan
     Route::resource('/pengajuan', PengajuanController::class);
