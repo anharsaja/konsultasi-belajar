@@ -41,4 +41,5 @@ Route::middleware(['auth'])->group(function () {
     Route::put('/progress/edit/{id}', [ProgressBelajar::class, 'updateProgressMhs'])->name('progressbelajarmhs.update');
 });
 
+
 require_once __DIR__."/auth/register.php";
