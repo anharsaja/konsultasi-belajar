@@ -27,8 +27,8 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/daftarpengajuan/catatanhasil/{id}', [DaftarPengajuanController::class,'catatanKonsultasi'])->name('catatankonsultasi');
     Route::put('/catatanhasilkonsul/{id}', [DaftarPengajuanController::class,'storeCatatanHasil'])->name('addcatatankonsul');
 
-        // progress belajar
-    Route::get('/progress', function (){
+    // progress belajar
+    Route::get('/progress', function () {
         return view('pages.progress.index');
     })->name('progress');
     Route::resource('/daftar-pengajuan', DaftarPengajuanController::class);
@@ -40,12 +40,5 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/progress/edit/{studentId}/{courseId}', [ProgressBelajar::class, 'editProgressMhs'])->name('progressbelajarmhs.edit');
     Route::put('/progress/edit/{id}', [ProgressBelajar::class, 'updateProgressMhs'])->name('progressbelajarmhs.update');
 });
-
-
-// landing
-Route::get('/landing', function () {
-    return view('pages.landing.index');
-})->name('kontol');
-
 
 require_once __DIR__."/auth/register.php";
