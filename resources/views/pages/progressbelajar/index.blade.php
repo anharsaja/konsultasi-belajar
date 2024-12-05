@@ -61,7 +61,7 @@
                                         <td>{{ $student->course_name }}</td>
 
                                         <td style="width: 200px" class="d-flex">
-                                            <a class="btn btn-primary font-size-16 mx-auto px-8"
+                                            <a class="btn btn-success btn-sm font-size-16 mx-auto px-8"
                                                 href="{{ route('progressbelajarmhs.edit', ['studentId' => $student->student_id, 'courseId' => $student->course_id]) }}">Beri
                                                 Progress</a>
                                         </td>

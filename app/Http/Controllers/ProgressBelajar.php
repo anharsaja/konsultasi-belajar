@@ -34,8 +34,8 @@ class ProgressBelajar extends Controller
     public function editProgressMhs(string $studentId, string $courseId)
     {
         $progress = Progress::where('mahasiswa_id', $studentId)
-        ->where('course_id', $courseId)
-        ->first();
+            ->where('course_id', $courseId)
+            ->first();
 
         return view('pages.progressbelajar.edit', compact('progress'));
     }
@@ -52,7 +52,27 @@ class ProgressBelajar extends Controller
         $progress->save();
 
         return redirect()->route('progressbelajarmhs')
-        ->with('success', 'Data berhasil diperbarui.');
-        
+            ->with('success', 'Data berhasil diperbarui.');
+    }
+
+    public function progressBelajarMahasiswa()
+    {
+        $mahasiswa_id = Auth::user()->id;
+
+        $progress = DB::select(
+            "SELECT 
+                progress.id,
+                courses.course_name AS course_name, 
+                progress.progress_detail,
+                users.name AS dosen_name
+            FROM progress
+            INNER JOIN courses ON progress.course_id = courses.id
+            INNER JOIN dosen_courses on courses.id = dosen_courses.course_id
+            INNER JOIN users AS users on dosen_courses.dosen_id = users.id  
+            WHERE progress.mahasiswa_id = ?",
+            [$mahasiswa_id]
+        );
+
+        return view("pages.progress.index", compact("progress"));
     }
 }

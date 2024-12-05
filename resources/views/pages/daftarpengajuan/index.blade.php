@@ -99,8 +99,6 @@
                                                     <li><a class="dropdown-item"
                                                             href="{{ route('catatankonsultasi', $consultation->id) }}">Catatan
                                                             hasil</a></li>
-                                                    <li><a class="dropdown-item" href="#">Progress belajar</a>
-                                                    </li>
                                                 </ul>
                                             </div>
                                         </td>

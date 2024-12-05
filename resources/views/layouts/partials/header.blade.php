@@ -24,7 +24,7 @@
                     </div>
 
                     <button type="button"
-                        class="btn btn-sm px-3 font-size-16 d-lg-none header-item waves-effect waves-light"
+                        class="btn btn-sm font-size-16 d-lg-none header-item waves-effect waves-light px-3"
                         data-bs-toggle="collapse" data-bs-target="#topnav-menu-content">
                         <i class="fa fa-fw fa-bars"></i>
                     </button>
@@ -69,13 +69,19 @@
                             <i data-feather="sun" class="icon-lg layout-mode-light"></i>
                         </button>
                     </div>
+                    <div class="dropdown d-none d-sm-inline-block flex">
+                        <a href="{{ route('notification') }}" class="btn header-item flex"
+                            style="display: flex; align-items:center;"><i data-feather="bell" class="icon-lg"></i><span
+                                class="badge bg-danger"
+                                style="height: 10px; width: 10px">{{ session('unread_notifications') ? ' ' : '' }}</span></a>
+                    </div>
 
-                        <div class="dropdown d-inline-block">
+                    <div class="dropdown d-inline-block">
                         <button type="button" class="btn header-item bg-light-subtle border-start border-end"
                             id="page-header-user-dropdown" data-bs-toggle="dropdown" aria-haspopup="true"
                             aria-expanded="false">
                             <i class="fas fa-user"></i>
-                            <span class="d-none d-xl-inline-block ms-1 fw-medium">{{ Auth::user()->name }}</span>
+                            <span class="d-none d-xl-inline-block fw-medium ms-1">{{ Auth::user()->name }}</span>
                             <i class="mdi mdi-chevron-down d-none d-xl-inline-block"></i>
                         </button>
                         <div class="dropdown-menu dropdown-menu-end" style="min-width: 100%">
@@ -84,7 +90,7 @@
                                 @method('DELETE')
                                 @csrf
                                 <button class="dropdown-item">
-                                    <i class="mdi mdi-logout font-size-16 align-middle me-1"></i>
+                                    <i class="mdi mdi-logout font-size-16 me-1 align-middle"></i>
                                     Logout
                                 </button>
                             </form>
