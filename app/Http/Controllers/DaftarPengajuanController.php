@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Consultation;
+use App\Models\Notification;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -44,7 +45,7 @@ class DaftarPengajuanController extends Controller
                 $consultation->issue = Str::limit($consultation->issue, 50, '...');
             }
 
-            
+
             return view("pages.daftarpengajuan.index", compact("consultations"));
         } catch (\Exception $e) {
             return redirect()->back()->with('error', $e->getMessage());
@@ -53,7 +54,7 @@ class DaftarPengajuanController extends Controller
 
     public function catatanKonsultasi(string $id)
     {
-       
+
         try {
             $consultation = collect(DB::select(
                 "SELECT 
@@ -79,20 +80,17 @@ class DaftarPengajuanController extends Controller
         ]);
 
         try {
-        $consultation = Consultation::findOrFail($id);
+            $consultation = Consultation::findOrFail($id);
 
-        $consultation->note = $request->note;
-        $consultation->save();
+            $consultation->note = $request->note;
+            $consultation->save();
 
 
-        return redirect()->route('daftar-pengajuan.index')
-        ->with('success', 'Catatan berhasil ditambahkan.');
-
+            return redirect()->route('daftar-pengajuan.index')
+                ->with('success', 'Catatan berhasil ditambahkan.');
         } catch (\Exception $e) {
             return redirect()->back()->with('error', $e->getMessage());
         }
-
-
     }
 
     /**
@@ -128,23 +126,57 @@ class DaftarPengajuanController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id) 
+    public function update(Request $request, string $id)
     {
-        $consultation = Consultation::findOrFail($id);
+        try {
+            DB::beginTransaction();
+            $consultation = Consultation::findOrFail($id);
 
-        $consultation->status = $request->status;
+            $consultation->status = $request->status;
 
-        if ($request->status == 'rejected') {
-            $consultation->reason_rejected = $request->reason_rejected;
-        } elseif ($request->status == 'rescheduled') {
-            $consultation->scheduled_time = $request->scheduled_time;
-            $consultation->reason_rejected = '';
+            if ($request->status == 'rejected') {
+                $consultation->reason_rejected = $request->reason_rejected;
+                Notification::updateOrCreate(
+                    ['consultation_id' => $id],
+                    [
+                        'consultation_id' => $id,
+                        'title' => "Ditolak",
+                        'message' => 'Konsultasi anda ditolak karena ' . $request->reason_rejected,
+                        'is_read' => false,
+                    ]
+                );
+            } elseif ($request->status == 'rescheduled') {
+                $consultation->scheduled_time = $request->scheduled_time;
+                Notification::updateOrCreate(
+                    ['consultation_id' => $id],
+                    [
+                        'consultation_id' => $id,
+                        'title' => "Dijadwalkan Ulang",
+                        'message' => 'Konsultasi anda dijadwalkan ulang pada tanggal ' . Carbon::parse($request->scheduled_time)->format('Y-m-d'),
+                        'is_read' => false,
+                    ]
+                );
+                $consultation->reason_rejected = '';
+            } else {
+                Notification::updateOrCreate(
+                    ['consultation_id' => $id],
+                    [
+                        'consultation_id' => $id,
+                        'title' => "Disetujui",
+                        'message' => 'Konsultasi anda dijadwalkan pada tanggal ' . Carbon::parse($request->scheduled_time)->format('Y-m-d'),
+                        'is_read' => false,
+                    ]
+                );
+            }
+            $consultation->save();
+
+            DB::commit();
+            return redirect()->route('daftar-pengajuan.index')
+                ->with('success', 'Data berhasil diperbarui.');
+        } catch (\Exception $e) {
+            DB::rollBack();
+            return redirect()->back()->with('error', $e->getMessage());
         }
-
-        $consultation->save();
-
-        return redirect()->route('daftar-pengajuan.index')
-        ->with('success', 'Data berhasil diperbarui.');
     }
 
     /**

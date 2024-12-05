@@ -4,6 +4,7 @@ use App\Http\Controllers\DaftarPengajuanController;
 use App\Http\Controllers\PengajuanController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DashboardDosenController;
+use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\ProgressBelajar;
 use App\Http\Controllers\RoomBuyerController;
 use App\Http\Controllers\RoomSellerController;
@@ -28,9 +29,7 @@ Route::middleware(['auth'])->group(function () {
     Route::put('/catatanhasilkonsul/{id}', [DaftarPengajuanController::class,'storeCatatanHasil'])->name('addcatatankonsul');
 
     // progress belajar
-    Route::get('/progress', function () {
-        return view('pages.progress.index');
-    })->name('progress');
+    Route::get('/progress', [ProgressBelajar::class, 'progressBelajarMahasiswa'])->name('progress');
     Route::resource('/daftar-pengajuan', DaftarPengajuanController::class);
     Route::get('/daftar-pengajuan/catatan-hasil/{id}', [DaftarPengajuanController::class,'catatanKonsultasi'])->name('catatankonsultasi');
     Route::put('/catatan-hasil-konsul/{id}', [DaftarPengajuanController::class,'storeCatatanHasil'])->name('addcatatankonsul');
@@ -39,6 +38,11 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/progress-belajar-mhs', [ProgressBelajar::class,'index'])->name('progressbelajarmhs');
     Route::get('/progress/edit/{studentId}/{courseId}', [ProgressBelajar::class, 'editProgressMhs'])->name('progressbelajarmhs.edit');
     Route::put('/progress/edit/{id}', [ProgressBelajar::class, 'updateProgressMhs'])->name('progressbelajarmhs.update');
+
+
+    // endpoint notification
+    Route::get('/notification-mahasiswa', [NotificationController::class,'pageNotification'])->name('notification');
+    Route::put('/notification/mark-as-read', [NotificationController::class,'markAsRead'])->name('markasreadnotif');
 });
 
 

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class AuthenticatedSessionController extends Controller
 {
@@ -36,6 +37,13 @@ class AuthenticatedSessionController extends Controller
             $request->session()->regenerate();
 
             if (Auth::user()->role == 'mahasiswa') {
+                $hasUnreadNotifications = DB::table('notifications')
+                ->join('consultations', 'notifications.consultation_id', '=', 'consultations.id')
+                ->where('consultations.mahasiswa_id', Auth::user()->id)
+                ->where('notifications.is_read', false)
+                ->exists();
+
+                session(['unread_notifications' => $hasUnreadNotifications]);
                 return redirect()->route('home');
                 
             } else {

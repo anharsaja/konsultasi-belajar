@@ -44,7 +44,7 @@
                                             <p class="badge badge-soft-warning font-size-12">Anda telah memberikan
                                                 catatan hasil konsultasi</p>
                                         @endif
-                                        <textarea name="progress_detail" class="form-control" rows="4">{{ $progress->progress_detail }}</textarea>
+                                        <textarea name="progress_detail" class="form-control" rows="16">{{ $progress->progress_detail }}</textarea>
                                     </div>
                                 </div>
                             </div>
