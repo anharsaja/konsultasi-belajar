@@ -44,11 +44,21 @@ class PengajuanController extends Controller
      */
     public function store(Request $request)
     {
+
         $request->validate([
             "course_id" => "required",
             "dosen_id" => "required",
             "scheduled_time" => "required|date"
         ]);
+
+        $consultations = Consultation::where([
+            ["course_id" , "=", $request->course_id],
+            ["dosen_id", "=", $request->dosen_id],
+            ["status", "=", "pending"]
+        ])->count();
+        if ($consultations > 0) {
+            return back()->with("error", "Pengajuan sebelumnya belum di selesaikan");
+        }
         Consultation::create($request->all());
 
         $existingProgress = Progress::where('mahasiswa_id', Auth::user()->id)

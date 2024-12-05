@@ -65,7 +65,7 @@
                                         <select name="course_id" class="form-select" id="courses">
                                             <option disabled selected>Pilih Kursus</option>
                                             @foreach ($courses as $course)
-                                                <option value="{{ $course->id }}">{{ $course->course_name }}</option>
+                                            <option value="{{ $course->id }}">{{ $course->course_name }}</option>
                                             @endforeach
                                         </select>
                                     </div>
@@ -97,8 +97,8 @@
                                     </div>
                                 </div>
                             </div>
-                            <button type="submit" class="btn btn-primary">Simpan <i
-                                    class="bx bx-chevron-right ms-1"></i></button>
+                            <button type="submit" class="btn btn-primary kirim">Simpan
+                                <i class="bx bx-chevron-right ms-1"></i></button>
                         </form>
                     </div>
                 </div>
@@ -163,4 +163,48 @@
             dateInput.value = today;
         });
     </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            let session = "{{ session('error') }}"
+            console.log(session);
+            if (session) {
+                Toastify({
+                    text: session,
+                    duration: 3000,
+                    newWindow: true,
+                    close: true,
+                    gravity: "top", // `top` or `bottom`
+                    position: "center", // `left`, `center` or `right`
+                    stopOnFocus: true, // Prevents dismissing of toast on hover
+                    style: {
+                        background: "#0080FF",
+                        fontSize: "16px"
+                    },
+                    onClick: function() {} // Callback after click
+                }).showToast();
+            }
+        });
+    </script>
+
+    @if($errors->all())
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            Toastify({
+                text: "Harap isi semua",
+                duration: 3000,
+                newWindow: true,
+                close: true,
+                gravity: "top", // `top` or `bottom`
+                position: "center", // `left`, `center` or `right`
+                stopOnFocus: true, // Prevents dismissing of toast on hover
+                style: {
+                    background: "#FF3333",
+                    fontSize: "16px"
+                },
+                onClick: function() {} // Callback after click
+            }).showToast();
+        });
+    </script>
+    @endif
 </x-layouts-dashboard>
