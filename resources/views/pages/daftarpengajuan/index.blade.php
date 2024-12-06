@@ -30,13 +30,6 @@
                             style="border-collapse: collapse; border-spacing: 0 8px; width: 100%;">
                             <thead>
                                 <tr class="bg-transparent">
-                                    <th style="width: 30px;">
-                                        <div class="form-check font-size-16">
-                                            <input type="checkbox" name="check" class="form-check-input"
-                                                id="checkAll">
-                                            <label class="form-check-label" for="checkAll"></label>
-                                        </div>
-                                    </th>
                                     <th style="width: 120px;">No</th>
                                     <th>Mahasiswa</th>
                                     <th>Mata Kuliah</th>
@@ -49,13 +42,6 @@
                             <tbody>
                                 @foreach ($consultations as $key => $consultation)
                                     <tr>
-                                        <td>
-                                            <div class="form-check font-size-16">
-                                                <input type="checkbox" class="form-check-input">
-                                                <label class="form-check-label"></label>
-                                            </div>
-                                        </td>
-
                                         <td><a href="javascript: void(0);"
                                                 class="text-body fw-medium">{{ $key + 1 }}</a> </td>
                                         <td>
