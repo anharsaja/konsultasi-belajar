@@ -9,7 +9,7 @@
                 <div class="page-title-right">
                     <ol class="breadcrumb m-0">
                         <li class="breadcrumb-item"><a href="javascript: void(0);">Progress Belajar</a></li>
-                        <li class="breadcrumb-item active">List Mata Kuliah</li>
+                        <li class="breadcrumb-item active">Progress Belajar</li>
                     </ol>
                 </div>
 

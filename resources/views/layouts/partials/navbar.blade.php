@@ -49,10 +49,6 @@
 
 
                             @endauth
-
-
-
-
                         </ul>
                     </div>
                 </nav>
